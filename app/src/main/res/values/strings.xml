@@ -18,4 +18,6 @@
     <string name="locality">Localidad</string>
     <string name="register">Inscribir</string>
     <string name="cancel">Cancelar</string>
+    <string name="formSocio">Formulario de Inscripción de Socio</string>
+    <string name="formNoSocio">Formulario de Inscripción de No Socio</string>
 </resources>

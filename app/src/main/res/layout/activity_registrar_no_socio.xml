@@ -5,6 +5,202 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/electric_cyan"
     tools:context=".RegistrarNoSocioActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="164dp"
+        android:src="@drawable/club_deportivo_mateo"
+        android:contentDescription="@string/logoDesc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="320dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:inputType="text"
+        android:hint="@string/userName"
+        android:autofillHints="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.304" />
+
+    <EditText
+        android:id="@+id/lastNameEditText"
+        android:layout_width="320dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:inputType="text"
+        android:hint="@string/lastName"
+        android:autofillHints="lastName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <EditText
+        android:id="@+id/dniEditText"
+        android:layout_width="320dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:inputType="text"
+        android:hint="@string/dni"
+        android:autofillHints="Dni"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447" />
+
+    <EditText
+        android:id="@+id/nacionalityEditText"
+        android:layout_width="320dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:inputType="text"
+        android:hint="@string/nacionality"
+        android:autofillHints="nacionality"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.519" />
+
+    <EditText
+        android:id="@+id/tlfEditText"
+        android:layout_width="320dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:inputType="number"
+        android:hint="@string/tlf"
+        android:autofillHints="tlf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="320dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:inputType="text"
+        android:hint="@string/dress"
+        android:autofillHints="postalAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.662" />
+
+    <EditText
+        android:id="@+id/heightEditTex"
+        android:layout_width="320dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:inputType="number"
+        android:hint="@string/height"
+        android:autofillHints="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nacionalityEditText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.734" />
+
+    <EditText
+        android:id="@+id/districtEditText"
+        android:layout_width="320dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:inputType="text"
+        android:hint="@string/district"
+        android:autofillHints="district"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.806" />
+
+    <EditText
+        android:id="@+id/localityEditText"
+        android:layout_width="320dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:inputType="text"
+        android:hint="@string/locality"
+        android:autofillHints="locality"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.878" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="125dp"
+        android:layout_height="49dp"
+        android:text="@string/register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/suspendButton"
+        android:layout_width="125dp"
+        android:layout_height="49dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <TextView
+        android:id="@+id/formNoSocioTextView"
+        android:layout_width="190dp"
+        android:layout_height="118dp"
+        android:text="@string/formNoSocio"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
