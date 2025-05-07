@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/electric_cyan"
     tools:context=".RegistrarPagosActivity">
 
     <EditText
@@ -25,7 +26,8 @@
         android:id="@+id/btnCash"
         android:layout_width="256dp"
         android:layout_height="49dp"
-        android:text="EFECTIVO"
+        android:text="Efectivo"
+        android:backgroundTint="@color/blue_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.554"
@@ -37,7 +39,8 @@
         android:id="@+id/btnCredit"
         android:layout_width="256dp"
         android:layout_height="49dp"
-        android:text="TARJETA DE CREDITO"
+        android:text="Tarjeta de Credito"
+        android:backgroundTint="@color/blue_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.554"
@@ -50,6 +53,8 @@
         android:layout_width="256dp"
         android:layout_height="49dp"
         android:text="Pago de Cuota Mensual"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="@color/yellow"
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
