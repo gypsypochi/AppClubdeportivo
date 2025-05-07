@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">AppClubdeportivo</string>
+    <string name="userName">Nombres</string>
+    <string name="lastName">Apellidos</string>
+    <string name="dni">Dni</string>
+    <string name="nacionality">Nacionalidad</string>
+    <string name="tlf">Telefono</string>
+    <string name="dress">Direccion</string>
+    <string name="height">Altura</string>
+    <string name="district">Barrio</string>
+    <string name="locality">Localidad</string>
+    <string name="register">Inscribir</string>
+    <string name="cancel">Cancelar</string>
+
+
 </resources>
