@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AppClubdeportivo</string>
+    <string name="signIn">Ingresar</string>
+    <string name="signUp">Registrarse</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="hintUsername">Ingrese su usuario</string>
+    <string name="hintPassword">Ingrese su contraseña</string>
+    <string name="forgotPassword">Olvidé mi contraseña</string>
+    <string name="logoDesc">Logo del Club Deportivo Mateo</string>
 </resources>
