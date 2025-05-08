@@ -5,6 +5,67 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00BCD4"
     tools:context=".InscribirActividadActivity">
+
+    <Button
+        android:id="@+id/btnSignIn3"
+        android:layout_width="277dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.613" />
+
+    <Button
+        android:id="@+id/btnSignIn2"
+        android:layout_width="277dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="Inscribir Actividad"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.513" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="154dp"
+        android:layout_height="136dp"
+        app:srcCompat="@drawable/club_deportivo_mateo"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="159dp"
+        android:layout_height="40dp"
+        android:text="Inscribir Actividad"
+        android:textAlignment="center"
+        android:textColor="#c49906"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="195dp"
+        tools:layout_editor_absoluteY="86dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECCIONE LA ACTIVIDAD"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="229dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="308dp"
+        android:layout_height="45dp"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="248dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
