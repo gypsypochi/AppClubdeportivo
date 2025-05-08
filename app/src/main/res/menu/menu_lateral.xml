@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/nav_inicio" android:title="Inicio" />
-    <item android:id="@+id/nav_perfil" android:title="Perfil" />
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/navMenuPrincipal" android:title="Menú Principal" />
+    <item android:id="@+id/navSocios" android:title="Menú Socios" />
+    <item android:id="@+id/navNoSocios" android:title="Menú No Socios" />
+    <item android:id="@+id/navLogOut" android:title="Cerrar Sesión" />
+    <item android:id="@+id/navCloseMenu" android:title="Cerrar" />
 </menu>

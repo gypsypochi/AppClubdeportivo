@@ -31,10 +31,10 @@
             android:name=".MenuPrincipalActivity"
             android:exported="false" />
         <activity
-            android:name=".PantallaLoginActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".PantallaLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
