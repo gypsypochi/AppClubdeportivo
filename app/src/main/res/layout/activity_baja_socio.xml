@@ -66,14 +66,14 @@
         android:id="@+id/bajaSocioTextView"
         android:layout_width="146dp"
         android:layout_height="59dp"
-        android:text="@string/DropPartner"
         android:fontFamily="sans-serif-condensed-medium"
-        android:textSize="30sp"
+        android:text="@string/DropPartner"
         android:textColor="@color/blue_gray"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintHorizontal_bias="0.773"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.119" />
 </androidx.constraintlayout.widget.ConstraintLayout>

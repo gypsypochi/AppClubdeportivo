@@ -12,43 +12,17 @@
         android:id="@+id/documentEditText"
         android:layout_width="256dp"
         android:layout_height="49dp"
-        android:ems="10"
-        android:inputType="text"
-        android:backgroundTint="@color/black"
-        android:hint="@string/dni"
         android:autofillHints="dni"
+        android:ems="10"
+        android:hint="@string/dni"
+        android:inputType="text"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409" />
-
-    <Button
-        android:id="@+id/btnCash"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:text="@string/cash"
-        android:backgroundTint="@color/blue_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605" />
-
-    <Button
-        android:id="@+id/btnCredit"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:text="@string/creditCard"
-        android:backgroundTint="@color/blue_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.743" />
+        app:layout_constraintVertical_bias="0.34" />
 
     <TextView
         android:id="@+id/payTextView"
@@ -77,5 +51,113 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.077" />
+
+    <RadioGroup
+        android:id="@+id/rgMetodoPago"
+        android:layout_width="321dp"
+        android:layout_height="59dp"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.611">
+
+        <RadioButton
+            android:id="@+id/rbCash"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cash" />
+
+        <RadioButton
+            android:id="@+id/rbCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/creditCard" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rgCuotas"
+        android:layout_width="155dp"
+        android:layout_height="157dp"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.837">
+
+        <RadioButton
+            android:id="@+id/rb1Installment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cuota1" />
+
+        <RadioButton
+            android:id="@+id/rb3Installment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cuota3" />
+
+        <RadioButton
+            android:id="@+id/rb6Installment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cuota6" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnConsult"
+        android:layout_width="125dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/consult"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.434" />
+
+    <TextView
+        android:id="@+id/montoTextView"
+        android:layout_width="125dp"
+        android:layout_height="49dp"
+        android:textColor="@color/black"
+        android:text="@string/totalPay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.524" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="125dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="125dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

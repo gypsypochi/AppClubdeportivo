@@ -18,11 +18,13 @@
     <string name="locality">Localidad</string>
     <string name="register">Inscribir</string>
     <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="consult">Consultar</string>
     <string name="formSocio">Formulario de Inscripción de Socio</string>
     <string name="formNoSocio">Formulario de Inscripción de No Socio</string>
     <string name="cash">Efectivo</string>
     <string name="creditCard">Tarjeta de Credito</string>
-    <string name="cancelmonthlyPlayment">Pago de Cuota Mensual</string>
+    <string name="cancelmonthlyPlayment">Pago de Cuota Mensual/Cuota Diaria</string>
     <string name="DropSysten">Dar de Baja del Sistema</string>
     <string name="DropPartner">Baja Socio</string>
     <string name="DropNoPartner">Baja No Socio</string>
@@ -31,6 +33,11 @@
     <string name="checkActivity">Consultar Actividad</string>
     <string name="activityManagement">Gestión de Actividades Socios</string>
     <string name="activityNoManagement">Gestión de Actividades No Socios</string>
-
-
+    <string name="cuota1">1 cuota</string>
+    <string name="cuota3">3 cuotas</string>
+    <string name="cuota6">6 cuotas</string>
+    <string name="totalPay">Total a Pagar:</string>
+    <string name="manageMembers">Gestionar Socios</string>
+    <string name="manageNonMembers">Gestionar No Socios</string>
+    <string name="deudores">Mostrar Deudores</string>
 </resources>
