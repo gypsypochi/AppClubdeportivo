@@ -170,6 +170,7 @@
         android:layout_width="125dp"
         android:layout_height="49dp"
         android:text="@string/register"
+        android:backgroundTint="@color/blue_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.177"
@@ -182,6 +183,7 @@
         android:layout_width="125dp"
         android:layout_height="49dp"
         android:text="@string/cancel"
+        android:backgroundTint="@color/blue_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.684"
@@ -190,17 +192,19 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <TextView
-        android:id="@+id/formNoSocioTextView"
-        android:layout_width="190dp"
-        android:layout_height="118dp"
+        android:id="@+id/partnerTextView"
+        android:layout_width="214dp"
+        android:layout_height="84dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/formNoSocio"
-        android:textColor="@color/black"
+        android:textColor="@color/blue_gray"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.128"
+        android:importantForAccessibility="no"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
