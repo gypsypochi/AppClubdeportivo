@@ -13,6 +13,18 @@
         android:theme="@style/Theme.AppClubdeportivo"
         tools:targetApi="31">
         <activity
+            android:name=".gestionDeActividadesNoSocio"
+            android:exported="false" />
+        <activity
+            android:name=".gestionDeActividadesSocio"
+            android:exported="false" />
+        <activity
+            android:name=".bajaNoSocio"
+            android:exported="false" />
+        <activity
+            android:name=".bajaSocio"
+            android:exported="false" />
+        <activity
             android:name=".registerActivity"
             android:exported="false" />
         <activity

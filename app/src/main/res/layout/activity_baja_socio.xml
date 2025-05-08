@@ -6,76 +6,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/electric_cyan"
-    tools:context=".RegistrarPagosActivity">
+    tools:context=".bajaSocio">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="164dp"
+        android:contentDescription="@string/logoDesc"
+        android:src="@drawable/club_deportivo_mateo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054" />
 
     <EditText
-        android:id="@+id/documentEditText"
+        android:id="@+id/editTextText"
         android:layout_width="256dp"
         android:layout_height="49dp"
         android:ems="10"
         android:inputType="text"
-        android:backgroundTint="@color/black"
         android:hint="@string/dni"
+        android:textColorHint="@color/black"
         android:autofillHints="dni"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409" />
+        app:layout_constraintVertical_bias="0.403" />
 
     <Button
-        android:id="@+id/btnCash"
+        android:id="@+id/cancelButton"
         android:layout_width="256dp"
         android:layout_height="49dp"
-        android:text="@string/cash"
+        android:text="@string/cancel"
         android:backgroundTint="@color/blue_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintVertical_bias="0.746" />
 
     <Button
-        android:id="@+id/btnCredit"
+        android:id="@+id/dropButton"
         android:layout_width="256dp"
         android:layout_height="49dp"
-        android:text="@string/creditCard"
+        android:text="@string/DropSysten"
         android:backgroundTint="@color/blue_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.743" />
+        app:layout_constraintVertical_bias="0.613" />
 
     <TextView
-        android:id="@+id/payTextView"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:text="@string/cancelmonthlyPlayment"
+        android:id="@+id/bajaSocioTextView"
+        android:layout_width="146dp"
+        android:layout_height="59dp"
+        android:text="@string/DropPartner"
         android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="30sp"
         android:textColor="@color/blue_gray"
-        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.801"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="164dp"
-        android:src="@drawable/club_deportivo_mateo"
-        android:contentDescription="@string/logoDesc"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
-
+        app:layout_constraintVertical_bias="0.12" />
 </androidx.constraintlayout.widget.ConstraintLayout>
