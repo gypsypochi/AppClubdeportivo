@@ -6,7 +6,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/electric_cyan"
-    tools:context=".gestionarNoSocios">
+    tools:context=".gestionarSocios">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="164dp"
+        android:contentDescription="@string/logoDesc"
+        android:src="@drawable/club_deportivo_mateo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054" />
+
+    <Button
+        android:id="@+id/btnRegisterMember"
+        android:layout_width="256sp"
+        android:layout_height="49sp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/altaSocio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368" />
+
+    <Button
+        android:id="@+id/btnPayFee"
+        android:layout_width="256sp"
+        android:layout_height="49sp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/payFee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.482" />
+
+    <Button
+        android:id="@+id/btnActivities"
+        android:layout_width="256sp"
+        android:layout_height="49sp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/activities"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.592" />
+
+    <Button
+        android:id="@+id/btnDropPartner"
+        android:layout_width="256sp"
+        android:layout_height="49sp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/DropPartner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <Button
+        android:id="@+id/btnListMembers"
+        android:layout_width="256sp"
+        android:layout_height="49sp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/listMembers"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.804" />
+
+    <Button
+        android:id="@+id/btnGenerateCard"
+        android:layout_width="256sp"
+        android:layout_height="49sp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/generateCard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.91" />
 
     <ImageButton
         android:id="@+id/btnMenu"
@@ -37,82 +128,5 @@
         app:layout_constraintVertical_bias="0.022"
         app:srcCompat="@drawable/ic_arrow_back" />
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="164dp"
-        android:contentDescription="@string/logoDesc"
-        android:src="@drawable/club_deportivo_mateo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054" />
-
-    <Button
-        android:id="@+id/btnRegisterNonMember"
-        android:layout_width="256sp"
-        android:layout_height="49sp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/altaNoSocio"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378" />
-
-    <Button
-        android:id="@+id/btnPayFee"
-        android:layout_width="256sp"
-        android:layout_height="49sp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/payFee"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-
-    <Button
-        android:id="@+id/btnActivities"
-        android:layout_width="256sp"
-        android:layout_height="49sp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/activities"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613" />
-
-    <Button
-        android:id="@+id/btnDropNonPartner"
-        android:layout_width="256sp"
-        android:layout_height="49sp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/DropNoPartner"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
-
-    <Button
-        android:id="@+id/btnListNonMembers"
-        android:layout_width="256sp"
-        android:layout_height="49sp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/listNonMembers"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+

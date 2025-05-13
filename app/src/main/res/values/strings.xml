@@ -7,6 +7,8 @@
     <string name="hintPassword">Ingrese su contraseña</string>
     <string name="forgotPassword">Olvidé mi contraseña</string>
     <string name="logoDesc">Logo del Club Deportivo Mateo</string>
+    <string name="btnBackDesc">Botón para volver atrás</string>
+    <string name="btnMenuDesc">Botón menú desplegable</string>
     <string name="userName">Nombres</string>
     <string name="lastName">Apellidos</string>
     <string name="dni">Dni</string>

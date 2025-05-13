@@ -46,7 +46,7 @@
             android:name=".MenuPrincipalActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".gestionarSocios"
             android:exported="false" />
         <activity
             android:name=".PantallaLoginActivity"
