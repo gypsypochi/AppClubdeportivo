@@ -16,9 +16,10 @@
         android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613" />
+        app:layout_constraintVertical_bias="0.767" />
 
     <Button
         android:id="@+id/btnSignIn2"
@@ -28,26 +29,27 @@
         android:text="Inscribir Actividad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintVertical_bias="0.65" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="154dp"
         android:layout_height="136dp"
         app:srcCompat="@drawable/club_deportivo_mateo"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="34dp" />
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="49dp" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="159dp"
-        android:layout_height="40dp"
+        android:layout_width="163dp"
+        android:layout_height="64dp"
         android:text="Inscribir Actividad"
         android:textAlignment="center"
-        android:textColor="#c49906"
-        android:textSize="18sp"
+        android:textColor="@color/blue_gray"
+        android:textSize="22sp"
         tools:layout_editor_absoluteX="195dp"
         tools:layout_editor_absoluteY="86dp" />
 
@@ -57,15 +59,45 @@
         android:layout_height="wrap_content"
         android:text="SELECCIONE LA ACTIVIDAD"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="229dp" />
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="252dp" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="308dp"
         android:layout_height="45dp"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="248dp" />
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="302dp" />
+
+    <ImageButton
+        android:id="@+id/btnMenu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@color/electric_cyan"
+        android:contentDescription="@string/btnMenuDesc"
+        app:tint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/ic_menu" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@color/electric_cyan"
+        android:contentDescription="@string/btnBackDesc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/ic_arrow_back" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,6 +61,7 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:textColor="@color/blue_gray"
         android:textSize="22sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

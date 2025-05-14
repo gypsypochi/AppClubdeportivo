@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/electric_cyan"
-    tools:context=".gestionarSocios">
+    tools:context=".GestionarSocios">
 
     <ImageView
         android:id="@+id/logo"
@@ -20,19 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.054" />
-
-    <Button
-        android:id="@+id/btnRegisterMember"
-        android:layout_width="256sp"
-        android:layout_height="49sp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/altaSocio"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.368" />
 
     <Button
         android:id="@+id/btnPayFee"
@@ -127,6 +114,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022"
         app:srcCompat="@drawable/ic_arrow_back" />
+
+    <TextView
+        android:id="@+id/gestionarSocioTextView"
+        android:layout_width="186dp"
+        android:layout_height="77dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/managePartner"
+        android:contentDescription="@string/managePartner"
+        android:textAlignment="center"
+        android:textColor="@color/blue_gray"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.136"
+        android:importantForAccessibility="yes" />
+
+    <Button
+        android:id="@+id/btnRegisterMember"
+        android:layout_width="256dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/altaSocio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.376" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

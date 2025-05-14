@@ -6,46 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/electric_cyan"
-    tools:context=".MenuPrincipalActivity">
-
-    <Button
-        android:id="@+id/btnMembers"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/manageMembers"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
-
-    <Button
-        android:id="@+id/btnNonMembers"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/manageNonMembers"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.692" />
-
-    <Button
-        android:id="@+id/btnShowDebtors"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/deudores"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.838" />
+    tools:context=".RecuperarContrasena">
 
     <ImageView
         android:id="@+id/logo"
@@ -59,6 +20,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.073" />
+
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="256dp"
+        android:layout_height="49dp"
+        android:autofillHints="username"
+        android:ems="10"
+        android:hint="@string/mail"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.655" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="274dp"
+        android:layout_height="41dp"
+        android:text="Recuperar Contraseña"
+        android:textAlignment="center"
+        android:textColor="@color/blue_gray"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.484" />
 
     <ImageButton
         android:id="@+id/btnMenu"
@@ -75,17 +68,16 @@
         app:layout_constraintVertical_bias="0.022"
         app:srcCompat="@drawable/ic_menu" />
 
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@color/electric_cyan"
-        android:contentDescription="@string/btnBackDesc"
+    <Button
+        android:id="@+id/btnRecuperar"
+        android:layout_width="256dp"
+        android:layout_height="49dp"
+        android:text="@string/recoverPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022"
-        app:srcCompat="@drawable/ic_arrow_back" />
+        app:layout_constraintVertical_bias="0.855" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

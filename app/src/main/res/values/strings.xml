@@ -49,4 +49,9 @@
     <string name="listMembers">Listado de Socios</string>
     <string name="listNonMembers">Listado de No Socios</string>
     <string name="generateCard">Generar Carnet</string>
+    <string name="managePartner">Gestionar Socio</string>
+    <string name="manageNoPartner">Gestionar No Socio</string>
+    <string name="recoverPassword">Recuperar</string>
+    <string name="mail">Mail</string>
+
 </resources>
