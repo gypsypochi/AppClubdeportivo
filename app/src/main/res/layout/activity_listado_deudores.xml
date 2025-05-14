@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/electric_cyan"
+    tools:context=".ListadoDeudores">
+
+    <Button
+        android:id="@+id/dropButton3"
+        android:layout_width="256dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="Cerrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.942" />
+
+    <Button
+        android:id="@+id/dropButton2"
+        android:layout_width="256dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="Imprimir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="171dp"
+        android:layout_height="217dp"
+        app:srcCompat="@drawable/club_deportivo_mateo"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="-8dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="199dp"
+        android:layout_height="90dp"
+        android:text="Listado de Deudores"
+        android:textColor="@color/blue_gray"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="199dp"
+        tools:layout_editor_absoluteY="88dp" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="325dp"
+        android:layout_height="407dp"
+        android:background="#000000"
+        android:padding="8dp"
+        android:stretchColumns="*"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="254dp">
+
+        <!-- Fila de encabezado -->
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#CCCCCC"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Apellido"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#CCCCCC"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Nombre"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <!-- Fila de ejemplo -->
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Ordonez Rodriguez" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Delia" />
+        </TableRow>
+
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Gonzalez Ordonez" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Carlos Alfonso" />
+        </TableRow>
+
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Valle Valle" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Isidora" />
+        </TableRow>
+
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Santos Gonzalez" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Juan Luis" />
+        </TableRow>
+
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Pinto Valle" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Maria Dolores" />
+        </TableRow>
+
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Santos Pinto" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Oscar" />
+        </TableRow>
+
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Santos Pinto" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Cristina" />
+        </TableRow>
+
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Andres Rejas" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Carmen" />
+        </TableRow>
+
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Guerra Rodriguez" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Gregorio Vicente" />
+        </TableRow>
+
+        <TableRow android:background="#FFFFFF">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Diaz Alvarez" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="#EEEEEE"
+                android:padding="8dp"
+                android:text="Felipe" />
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
