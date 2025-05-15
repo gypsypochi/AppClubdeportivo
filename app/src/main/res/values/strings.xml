@@ -30,8 +30,8 @@
     <string name="DropSysten">Dar de Baja del Sistema</string>
     <string name="DropPartner">Baja Socio</string>
     <string name="DropNoPartner">Baja No Socio</string>
-    <string name="registerActivities">Inscribir Actividades</string>
-    <string name="unsubscribeActivities">Desinscribir Actividades</string>
+    <string name="registerActivities">Inscribir Actividad</string>
+    <string name="unsubscribeActivities">Desinscribir Actividad</string>
     <string name="checkActivity">Consultar Actividad</string>
     <string name="activityManagement">Gestión de Actividades Socios</string>
     <string name="activityNoManagement">Gestión de Actividades No Socios</string>
@@ -53,5 +53,8 @@
     <string name="manageNoPartner">Gestionar No Socio</string>
     <string name="recoverPassword">Recuperar</string>
     <string name="mail">Mail</string>
+    <string name="selectActivities">Seleccione la  Actividad</string>
+    <string name="parnertName">Nombre de Socio</string>
+    <string name="noParnertName">Nombre de No Socio</string>
 
 </resources>

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00BCD4"
+    android:background="@color/electric_cyan"
     tools:context=".InscribirActividadActivity">
 
     <Button
@@ -57,18 +57,18 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SELECCIONE LA ACTIVIDAD"
-        android:textStyle="bold"
+        android:text="@string/selectActivities"
         android:textColor="@color/black"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="252dp" />
+        tools:layout_editor_absoluteY="331dp" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="308dp"
         android:layout_height="45dp"
         tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="302dp" />
+        tools:layout_editor_absoluteY="370dp" />
 
     <ImageButton
         android:id="@+id/btnMenu"
