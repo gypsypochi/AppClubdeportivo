@@ -16,31 +16,31 @@
             android:name=".DesinscribirActivadNoSocioActivity"
             android:exported="false" />
         <activity
-            android:name=".DesinscribirActividad"
+            android:name=".DesinscribirActividadActivity"
             android:exported="false" />
         <activity
-            android:name=".ListadoDeudores"
+            android:name=".ListadoDeudoresActivity"
             android:exported="false" />
         <activity
-            android:name=".RecuperarContrasena"
+            android:name=".RecuperarContrasenaActivity"
             android:exported="false" />
         <activity
-            android:name=".gestionarNoSocios"
+            android:name=".GestionarNoSociosActivity"
             android:exported="false" />
         <activity
-            android:name=".gestionDeActividadesNoSocio"
+            android:name=".GestionDeActividadesNoSocioActivity"
             android:exported="false" />
         <activity
-            android:name=".gestionDeActividadesSocio"
+            android:name=".GestionDeActividadesSocioActivity"
             android:exported="false" />
         <activity
-            android:name=".bajaNoSocio"
+            android:name=".BajaNoSocioActivity"
             android:exported="false" />
         <activity
-            android:name=".bajaSocio"
+            android:name=".BajaSocioActivity"
             android:exported="false" />
         <activity
-            android:name=".registerActivity"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".RegistrarPagosActivity"
@@ -58,7 +58,7 @@
             android:name=".MenuPrincipalActivity"
             android:exported="false" />
         <activity
-            android:name=".GestionarSocios"
+            android:name=".GestionarSociosActivity"
             android:exported="false" />
         <activity
             android:name=".PantallaLoginActivity"
