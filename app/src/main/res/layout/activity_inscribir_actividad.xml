@@ -8,12 +8,25 @@
     android:background="@color/electric_cyan"
     tools:context=".InscribirActividadActivity">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="164dp"
+        android:contentDescription="@string/logoDesc"
+        android:src="@drawable/club_deportivo_mateo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054" />
+
     <Button
-        android:id="@+id/btnSignIn3"
+        android:id="@+id/btnCancel"
         android:layout_width="277dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/blue_gray"
-        android:text="Cancelar"
+        android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
@@ -22,11 +35,11 @@
         app:layout_constraintVertical_bias="0.767" />
 
     <Button
-        android:id="@+id/btnSignIn2"
+        android:id="@+id/btnSuscribe"
         android:layout_width="277dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/blue_gray"
-        android:text="Inscribir Actividad"
+        android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
@@ -34,24 +47,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.65" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="154dp"
-        android:layout_height="136dp"
-        app:srcCompat="@drawable/club_deportivo_mateo"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="49dp" />
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/inscribirTextView"
         android:layout_width="163dp"
         android:layout_height="64dp"
-        android:text="Inscribir Actividad"
+        android:text="@string/registerActivities"
+        android:contentDescription="@string/registerActivities"
         android:textAlignment="center"
         android:textColor="@color/blue_gray"
         android:textSize="22sp"
-        tools:layout_editor_absoluteX="195dp"
-        tools:layout_editor_absoluteY="86dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.167" />
 
     <TextView
         android:id="@+id/textView2"
@@ -60,15 +70,21 @@
         android:text="@string/selectActivities"
         android:textColor="@color/black"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="331dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.433" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="308dp"
-        android:layout_height="45dp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="370dp" />
+        android:layout_width="300dp"
+        android:layout_height="49dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btnMenu"

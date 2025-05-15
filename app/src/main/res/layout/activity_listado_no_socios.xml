@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/electric_cyan"
-    tools:context=".ListadoDeudoresActivity">
+    tools:context=".ListadoNoSociosActivity">
 
     <ImageView
         android:id="@+id/logo"
@@ -77,10 +77,10 @@
         app:layout_constraintVertical_bias="0.944" />
 
     <TextView
-        android:id="@+id/listaDeudoresTextView"
+        android:id="@+id/listNonMembersTextView"
         android:layout_width="199dp"
         android:layout_height="90dp"
-        android:text="Listado de Deudores"
+        android:text="Listado No Socios"
         android:textColor="@color/blue_gray"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -103,7 +103,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.645">
 
-        <!-- Fila de encabezado -->
         <TableRow android:background="#FFFFFF">
 
             <TextView
@@ -123,7 +122,6 @@
                 android:textStyle="bold" />
         </TableRow>
 
-        <!-- Fila de ejemplo -->
         <TableRow android:background="#FFFFFF">
 
             <TextView
@@ -277,6 +275,5 @@
 
 
     </TableLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
