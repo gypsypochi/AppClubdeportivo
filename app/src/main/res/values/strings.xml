@@ -59,4 +59,14 @@
     <string name="noParnertName">Nombre de No Socio</string>
     <string name="print">Imprimir</string>
     <string name="close">Cerrar</string>
+    <string name="paymentReceipt">Recibo de Pago</string>
+    <string name="namepago">Nombre del cliente: Juan Pérez</string>
+    <string name="amount">Monto pagado: $1,500.00</string>
+    <string name="pay">Método de pago: Tarjeta de crédito</string>
+    <string name="dateAndTime">Fecha: 15/05/2025 - 10:32 AM</string>
+    <string name="voucher">N° de comprobante: 000123456789</string>
+    <string name="successfulPayment">Pago Exitoso</string>
+    <string name="ActivityConsul">Consulta de Actividades Inscritas</string>
+
+
 </resources>
