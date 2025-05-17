@@ -14,22 +14,10 @@
         tools:targetApi="31">
         <activity
             android:name=".ConsulActivityActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".PagoExitosoActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".CarnetActivity"
             android:exported="false" />
@@ -88,7 +76,7 @@
             android:name=".GestionarSociosActivity"
             android:exported="false" />
         <activity
-            android:name=".PantallaLoginActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
