@@ -57,17 +57,17 @@
         android:id="@+id/payTextView"
         android:layout_width="256dp"
         android:layout_height="49dp"
-        android:text="@string/cancelmonthlyPlayment"
         android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/cancelmonthlyPlayment"
+        android:textAlignment="center"
         android:textColor="@color/blue_gray"
         android:textSize="22sp"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.152" />
 
     <ImageView
         android:id="@+id/logo"

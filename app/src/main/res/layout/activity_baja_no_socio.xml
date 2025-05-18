@@ -8,6 +8,35 @@
     android:background="@color/electric_cyan"
     tools:context=".BajaNoSocioActivity">
 
+    <ImageButton
+        android:id="@+id/btnMenu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@color/electric_cyan"
+        android:contentDescription="@string/btnMenuDesc"
+        app:tint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/ic_menu" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@color/electric_cyan"
+        android:contentDescription="@string/btnBackDesc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/ic_arrow_back" />
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="150dp"
@@ -38,7 +67,7 @@
         app:layout_constraintVertical_bias="0.403" />
 
     <Button
-        android:id="@+id/cancelButton"
+        android:id="@+id/btnCancel"
         android:layout_width="256dp"
         android:layout_height="49dp"
         android:text="@string/cancel"
@@ -51,7 +80,7 @@
         app:layout_constraintVertical_bias="0.746" />
 
     <Button
-        android:id="@+id/dropButton"
+        android:id="@+id/btnUnsubscribe"
         android:layout_width="256dp"
         android:layout_height="49dp"
         android:text="@string/DropSysten"

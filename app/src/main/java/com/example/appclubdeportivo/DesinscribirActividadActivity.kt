@@ -1,20 +1,33 @@
 package com.example.appclubdeportivo
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class DesinscribirActividadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_desinscribir_actividad)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        /* Arrow Back */
+        val btnBack: ImageButton =findViewById(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish()
+        }
+
+        /* Boton Desinscribir Actividad */
+        val btnUnsubscribe: Button =findViewById(R.id.btnUnsubscribe)
+        btnUnsubscribe.setOnClickListener {
+
+        }
+
+        /* Boton Cancelar */
+        val btnCancel: Button =findViewById(R.id.btnCancel)
+        btnCancel.setOnClickListener {
+            finish()
         }
     }
 }
