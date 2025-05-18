@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/club_deportivo_mateo" />
 
     <Button
-        android:id="@+id/CancelarButton"
+        android:id="@+id/btnCancel"
         android:layout_width="256dp"
         android:layout_height="49dp"
         android:text="@string/cancel"
