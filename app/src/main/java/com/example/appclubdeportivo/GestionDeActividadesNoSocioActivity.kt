@@ -27,6 +27,13 @@ class GestionDeActividadesNoSocioActivity : AppCompatActivity() {
             startActivity(intentar)
         }
 
+        /*Consultar Actividad*/
+        val btnConsult: Button =findViewById(R.id.btnConsult)
+        btnConsult.setOnClickListener {
+            val intentar = Intent(this, ConsulActivityActivity::class.java)
+            startActivity(intentar)
+        }
+
         /* Boton Desinscribir Actividad */
         val btnUnsuscribeActiv: Button =findViewById(R.id.btnUnsubscribeActiv)
         btnUnsuscribeActiv.setOnClickListener {

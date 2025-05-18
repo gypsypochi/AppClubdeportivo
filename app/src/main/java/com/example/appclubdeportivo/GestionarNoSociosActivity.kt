@@ -26,6 +26,7 @@ class GestionarNoSociosActivity : AppCompatActivity() {
             startActivity(intentar)
         }
 
+
         /* Boton Pagar Cuota */
         val btnPayFee: Button =findViewById(R.id.btnPayFee)
         btnPayFee.setOnClickListener {

@@ -1,6 +1,5 @@
 package com.example.appclubdeportivo
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -12,6 +11,7 @@ class RegistrarNoSocioActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        setContentView(R.layout.activity_registrar_no_socio)
 
         /*Arrow Back*/
         val btnBack: ImageButton =findViewById(R.id.btnBack)
