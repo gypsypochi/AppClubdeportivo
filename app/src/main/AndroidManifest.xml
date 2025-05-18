@@ -13,6 +13,12 @@
         android:theme="@style/Theme.AppClubdeportivo"
         tools:targetApi="31">
         <activity
+            android:name=".InscribirActividadNoSocioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmarRecuperacionActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConsulActivityActivity"
             android:exported="false" />
         <activity

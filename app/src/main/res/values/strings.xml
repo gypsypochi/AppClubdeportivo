@@ -30,7 +30,7 @@
     <string name="DropSysten">Dar de Baja del Sistema</string>
     <string name="DropPartner">Baja Socio</string>
     <string name="DropNoPartner">Baja No Socio</string>
-    <string name="registerActivities">Inscribir Actividad</string>
+    <string name="registerActivities">Inscribir Actividad Socio</string>
     <string name="unsubscribeActivities">Desinscribir Actividad</string>
     <string name="unsubscribe">Desinscribir</string>
     <string name="checkActivity">Consultar Actividad</string>
@@ -67,6 +67,9 @@
     <string name="voucher">N° de comprobante: 000123456789</string>
     <string name="successfulPayment">Pago Exitoso</string>
     <string name="ActivityConsul">Consulta de Actividades Inscritas</string>
+    <string name="newPassword">Nueva Contraseña</string>
+    <string name="confirmPassword">Confirmar Contraseña</string>
+    <string name="registerActivitiesNoSocio">Inscribir Actividad No Socio</string>
 
 
 </resources>

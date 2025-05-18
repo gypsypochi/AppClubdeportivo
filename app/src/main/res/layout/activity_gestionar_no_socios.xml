@@ -39,7 +39,7 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="150dp"
+        android:layout_width="152dp"
         android:layout_height="164dp"
         android:contentDescription="@string/logoDesc"
         android:src="@drawable/club_deportivo_mateo"
