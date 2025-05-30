@@ -1,5 +1,6 @@
 package com.example.appclubdeportivo
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -112,5 +113,51 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         val exitoso = cursor.count > 0
         cursor.close()
         return exitoso
+    }
+
+    // Funcion buscar socio para agregar el insert de un nuevo socio
+    fun isMemberAvailable(dni: Int): Boolean {
+        val db = readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT dni FROM socio WHERE dni=?",
+            arrayOf(dni.toString())
+        )
+        val avaible = cursor.count == 0
+        cursor.close()
+        return avaible
+    }
+
+    // Funcion registrar socio
+    fun registerMember(
+        nombre: String,
+        apellido: String,
+        dni: Int,
+        nacionalidad: String,
+        telefono: Int,
+        direccion: Direccion
+    ): Boolean {
+        val db = writableDatabase
+
+        // Se registra la direccion
+        val valuesDireccion = ContentValues().apply {
+            put("calle", direccion.calle)
+            put("altura", direccion.altura)
+            put("barrio", direccion.barrio)
+            put("localidad", direccion.localidad)
+        }
+        val idDireccion = db.insert("direccion", null, valuesDireccion)
+        if (idDireccion == -1L) return false
+
+        //Se registra al Socio
+        val valuesSocio = ContentValues().apply {
+            put("nombre", nombre)
+            put("apellido", apellido)
+            put("dni", dni)
+            put("nacionalidad", nacionalidad)
+            put("telefono", telefono)
+            put("idDireccion", idDireccion.toInt())
+        }
+        val result = db.insert("socio", null, valuesSocio)
+        return  result != -1L
     }
 }
