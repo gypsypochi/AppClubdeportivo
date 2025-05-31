@@ -40,20 +40,22 @@ class RegistrarSocioActivity : AppCompatActivity() {
 
     // Funcion alta socio
     fun insertMember(){
-        val name = findViewById<EditText>(R.id.nameEditText).text.toString()
-        val lastName = findViewById<EditText>(R.id.lastNameEditText).text.toString()
-        val dni = findViewById<EditText>(R.id.dniEditText).text.toString().toInt()
-        val nacionality = findViewById<EditText>(R.id.nacionalityEditText).text.toString()
-        val tlf = findViewById<EditText>(R.id.tlfEditText).text.toString().toInt()
-
-        val direccion = Direccion (
+        val address = Direccion (
             calle = findViewById<EditText>(R.id.addressEditText).text.toString(),
             altura = findViewById<EditText>(R.id.heightEditTex).text.toString().toInt(),
             barrio = findViewById<EditText>(R.id.districtEditText).text.toString(),
             localidad = findViewById<EditText>(R.id.localityEditText).text.toString())
 
-        if (dbHelper.isMemberAvailable(dni)) {
-            dbHelper.registerMember(name, lastName, dni, nacionality, tlf, direccion)
+        val person = Persona(
+            name = findViewById<EditText>(R.id.nameEditText).text.toString(),
+            lastName = findViewById<EditText>(R.id.lastNameEditText).text.toString(),
+            dni = findViewById<EditText>(R.id.dniEditText).text.toString().toInt(),
+            nacionality = findViewById<EditText>(R.id.nacionalityEditText).text.toString(),
+            phoneNum = findViewById<EditText>(R.id.tlfEditText).text.toString().toInt(),
+            address = address)
+
+        if (dbHelper.isMemberAvailable(person.dni)) {
+            dbHelper.registerMember(person, address)
             Toast.makeText(this, "Socio Registrado", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, "El dni pertenece a un socio registrado", Toast.LENGTH_SHORT).show()

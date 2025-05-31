@@ -115,7 +115,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         return exitoso
     }
 
-    // Funcion buscar socio para agregar el insert de un nuevo socio
+    // Funcion buscar socio por dni
     fun isMemberAvailable(dni: Int): Boolean {
         val db = readableDatabase
         val cursor = db.rawQuery(
@@ -128,33 +128,26 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
     }
 
     // Funcion registrar socio
-    fun registerMember(
-        nombre: String,
-        apellido: String,
-        dni: Int,
-        nacionalidad: String,
-        telefono: Int,
-        direccion: Direccion
-    ): Boolean {
+    fun registerMember(person: Persona, address: Direccion): Boolean {
         val db = writableDatabase
 
         // Se registra la direccion
         val valuesDireccion = ContentValues().apply {
-            put("calle", direccion.calle)
-            put("altura", direccion.altura)
-            put("barrio", direccion.barrio)
-            put("localidad", direccion.localidad)
+            put("calle", address.calle)
+            put("altura", address.altura)
+            put("barrio", address.barrio)
+            put("localidad", address.localidad)
         }
         val idDireccion = db.insert("direccion", null, valuesDireccion)
         if (idDireccion == -1L) return false
 
         //Se registra al Socio
         val valuesSocio = ContentValues().apply {
-            put("nombre", nombre)
-            put("apellido", apellido)
-            put("dni", dni)
-            put("nacionalidad", nacionalidad)
-            put("telefono", telefono)
+            put("nombre", person.name)
+            put("apellido", person.lastName)
+            put("dni", person.dni)
+            put("nacionalidad", person.nacionality)
+            put("telefono", person.phoneNum)
             put("idDireccion", idDireccion.toInt())
         }
         val result = db.insert("socio", null, valuesSocio)
