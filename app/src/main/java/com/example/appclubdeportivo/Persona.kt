@@ -1,6 +1,6 @@
 package com.example.appclubdeportivo
 
-class Persona (
+abstract class Persona (
     val dni: Int,
     val name: String,
     val lastName: String,

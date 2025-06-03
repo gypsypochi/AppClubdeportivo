@@ -115,20 +115,22 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         return exitoso
     }
 
-    // Funcion buscar socio por dni
+    // Funcion buscar socio/noSocio por dni
     fun isMemberAvailable(dni: Int): Boolean {
         val db = readableDatabase
-        val cursor = db.rawQuery(
-            "SELECT dni FROM socio WHERE dni=?",
-            arrayOf(dni.toString())
-        )
-        val avaible = cursor.count == 0
+        val query = """
+        SELECT dni FROM socio WHERE dni = ? 
+        UNION 
+        SELECT dni FROM noSocio WHERE dni = ?
+    """
+        val cursor = db.rawQuery(query, arrayOf(dni.toString(), dni.toString()))
+        val exists = cursor.count == 0  // True si el DNI no existe
         cursor.close()
-        return avaible
+        return exists
     }
 
-    // Funcion registrar socio
-    fun registerMember(person: Persona, address: Direccion): Boolean {
+    // Funcion registrar socio/noSocio
+    fun registerPersona(tableName: String, persona: Persona, address: Direccion): Boolean {
         val db = writableDatabase
 
         // Se registra la direccion
@@ -142,15 +144,15 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         if (idDireccion == -1L) return false
 
         //Se registra al Socio
-        val valuesSocio = ContentValues().apply {
-            put("nombre", person.name)
-            put("apellido", person.lastName)
-            put("dni", person.dni)
-            put("nacionalidad", person.nacionality)
-            put("telefono", person.phoneNum)
+        val values = ContentValues().apply {
+            put("nombre", persona.name)
+            put("apellido", persona.lastName)
+            put("dni", persona.dni)
+            put("nacionalidad", persona.nacionality)
+            put("telefono", persona.phoneNum)
             put("idDireccion", idDireccion.toInt())
         }
-        val result = db.insert("socio", null, valuesSocio)
+        val result = db.insert(tableName, null, values)
         return  result != -1L
     }
 }

@@ -46,7 +46,7 @@ class RegistrarSocioActivity : AppCompatActivity() {
             barrio = findViewById<EditText>(R.id.districtEditText).text.toString(),
             localidad = findViewById<EditText>(R.id.localityEditText).text.toString())
 
-        val person = Persona(
+        val socio = Socio(
             name = findViewById<EditText>(R.id.nameEditText).text.toString(),
             lastName = findViewById<EditText>(R.id.lastNameEditText).text.toString(),
             dni = findViewById<EditText>(R.id.dniEditText).text.toString().toInt(),
@@ -54,11 +54,25 @@ class RegistrarSocioActivity : AppCompatActivity() {
             phoneNum = findViewById<EditText>(R.id.tlfEditText).text.toString().toInt(),
             address = address)
 
-        if (dbHelper.isMemberAvailable(person.dni)) {
-            dbHelper.registerMember(person, address)
+        if (dbHelper.isMemberAvailable(socio.dni)) {
+            dbHelper.registerPersona("socio", persona = socio, address = address)
             Toast.makeText(this, "Socio Registrado", Toast.LENGTH_SHORT).show()
+            clearForm()
         } else {
-            Toast.makeText(this, "El dni pertenece a un socio registrado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Error, el dni ingresado ya existe en nuestro sistema", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    // Función para borrar campos del formulario
+    private fun clearForm() {
+        findViewById<EditText>(R.id.nameEditText).text.clear()
+        findViewById<EditText>(R.id.lastNameEditText).text.clear()
+        findViewById<EditText>(R.id.dniEditText).text.clear()
+        findViewById<EditText>(R.id.nacionalityEditText).text.clear()
+        findViewById<EditText>(R.id.tlfEditText).text.clear()
+        findViewById<EditText>(R.id.addressEditText).text.clear()
+        findViewById<EditText>(R.id.heightEditTex).text.clear()
+        findViewById<EditText>(R.id.districtEditText).text.clear()
+        findViewById<EditText>(R.id.localityEditText).text.clear()
     }
 }
