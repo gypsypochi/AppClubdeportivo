@@ -52,8 +52,8 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             CREATE TABLE actividad (
             idActividad INTEGER PRIMARY KEY AUTOINCREMENT,
             nombre TEXT,
-            arancelMensual DOUBLE,
-            arancelDiario DOUBLE,
+            arancelMensual REAL,
+            arancelDiario REAL,
             maxInscritos INTEGER
             )
         """.trimIndent())
@@ -154,5 +154,51 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         }
         val result = db.insert(tableName, null, values)
         return  result != -1L
+    }
+
+    // Funcion lista de socios
+    fun getSocios():List<String>{
+        val socios = mutableListOf<String>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT idSocio, nombre, apellido, dni, telefono, venceCuota FROM socio", null)
+        if (cursor.moveToFirst()) {
+            do {
+                val idSocio = cursor.getInt(0)
+                val nombre = cursor.getString(1)
+                val apellido = cursor.getString(2)
+                val dni = cursor.getString(3)
+                val telefono = cursor.getString(4)
+                val venceCuota = cursor.getString(5)
+
+                val socioInfo = "ID: $idSocio - $nombre $apellido - DNI: $dni - Tel: $telefono - Vence: $venceCuota"
+                socios.add(socioInfo)
+
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return socios
+    }
+
+    // Funcion lista de socios
+    fun getNoSocios():List<String>{
+        val noSocios = mutableListOf<String>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT idNoSocio, nombre, apellido, dni, telefono, venceCuota FROM noSocio", null)
+        if (cursor.moveToFirst()) {
+            do {
+                val idNoSocio = cursor.getInt(0)
+                val nombre = cursor.getString(1)
+                val apellido = cursor.getString(2)
+                val dni = cursor.getString(3)
+                val telefono = cursor.getString(4)
+                val venceCuota = cursor.getString(5)
+
+                val socioInfo = "ID: $idNoSocio - $nombre $apellido - DNI: $dni - Tel: $telefono - Vence: $venceCuota"
+                noSocios.add(socioInfo)
+
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return noSocios
     }
 }
