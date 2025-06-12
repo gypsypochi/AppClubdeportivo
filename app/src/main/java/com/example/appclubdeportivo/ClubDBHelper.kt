@@ -122,7 +122,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         SELECT dni FROM socio WHERE dni = ? 
         UNION 
         SELECT dni FROM noSocio WHERE dni = ?
-    """
+        """
         val cursor = db.rawQuery(query, arrayOf(dni.toString(), dni.toString()))
         val exists = cursor.count == 0  // True si el DNI no existe
         cursor.close()

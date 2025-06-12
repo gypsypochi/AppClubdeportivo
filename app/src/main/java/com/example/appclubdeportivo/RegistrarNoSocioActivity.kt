@@ -1,9 +1,11 @@
 package com.example.appclubdeportivo
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +20,8 @@ class RegistrarNoSocioActivity : AppCompatActivity() {
         setContentView(R.layout.activity_registrar_no_socio)
 
         dbHelper = ClubDBHelper(this)
+
+        val fitnessCertificate = findViewById<LinearLayout>(R.id.fitnessCertificate)
 
         /*Arrow Back*/
         val btnBack: ImageButton =findViewById(R.id.btnBack)
@@ -34,7 +38,19 @@ class RegistrarNoSocioActivity : AppCompatActivity() {
         /* Boton Inscribir */
         val btnRegister: Button =findViewById(R.id.btnRegister)
         btnRegister.setOnClickListener {
-            insertNonMember()
+            fitnessCertificate.visibility = View.VISIBLE
+            val btnYes = findViewById<Button>(R.id.btnYes)
+            val btnNo = findViewById<Button>(R.id.btnNo)
+
+            btnYes.setOnClickListener{
+                insertNonMember()
+                fitnessCertificate.visibility = View.GONE
+            }
+
+            btnNo.setOnClickListener{
+                Toast.makeText(this, "Es necesario el apto físico para dar el alta", Toast.LENGTH_SHORT).show()
+                fitnessCertificate.visibility = View.GONE
+            }
         }
     }
 

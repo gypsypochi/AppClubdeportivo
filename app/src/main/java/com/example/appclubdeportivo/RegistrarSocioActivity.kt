@@ -1,12 +1,15 @@
 package com.example.appclubdeportivo
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class RegistrarSocioActivity : AppCompatActivity() {
 
@@ -19,6 +22,8 @@ class RegistrarSocioActivity : AppCompatActivity() {
 
         dbHelper = ClubDBHelper(this)
 
+        val fitnessCertificate = findViewById<LinearLayout>(R.id.fitnessCertificate)
+
         /* Arrow Back */
         val btnBack: ImageButton =findViewById(R.id.btnBack)
         btnBack.setOnClickListener {
@@ -28,7 +33,19 @@ class RegistrarSocioActivity : AppCompatActivity() {
         /* Boton Inscribir */
         val btnRegister: Button =findViewById(R.id.btnRegister)
         btnRegister.setOnClickListener {
-            insertMember()
+            fitnessCertificate.visibility = View.VISIBLE
+            val btnYes = findViewById<Button>(R.id.btnYes)
+            val btnNo = findViewById<Button>(R.id.btnNo)
+
+            btnYes.setOnClickListener{
+                insertMember()
+                fitnessCertificate.visibility = View.GONE
+            }
+
+            btnNo.setOnClickListener{
+                Toast.makeText(this, "Es necesario el apto físico para dar el alta", Toast.LENGTH_SHORT).show()
+                fitnessCertificate.visibility = View.GONE
+            }
         }
 
         /* Boton Cancelar */
