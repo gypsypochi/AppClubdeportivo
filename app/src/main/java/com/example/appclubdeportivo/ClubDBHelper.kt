@@ -167,6 +167,9 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             put("nacionalidad", persona.nacionality)
             put("telefono", persona.phoneNum)
             put("idDireccion", idDireccion.toInt())
+            val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val fechaActual = sdf.format(Date())
+            put("venceCuota", fechaActual)
         }
 
         // Si es socio se registra el monto del pago mensual
@@ -242,11 +245,11 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         val cursor = db.rawQuery("SELECT nombre, apellido, dni, telefono, venceCuota FROM socio WHERE venceCuota = ? ", arrayOf(fechaActual))
         if (cursor.moveToFirst()) {
             do {
-                val nombre = cursor.getString(1)
-                val apellido = cursor.getString(2)
-                val dni = cursor.getString(3)
-                val telefono = cursor.getString(4)
-                val venceCuota = cursor.getString(5)
+                val nombre = cursor.getString(0)
+                val apellido = cursor.getString(1)
+                val dni = cursor.getString(2)
+                val telefono = cursor.getString(3)
+                val venceCuota = cursor.getString(4)
 
                 val socioInfo = "Nombre: $nombre $apellido - DNI: $dni - Tel: $telefono - Vence: $venceCuota"
                 deudores.add(socioInfo)
@@ -275,17 +278,20 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
     }
 
     // Buscar no socio por dni
-    fun getNoSocio(dni: Int): Int? {
+    fun getNoSocio(dni: Int): Triple<Int, String, String>? {
         val db = readableDatabase
-        val cursor = db.rawQuery("SELECT idNoSocio FROM noSocio WHERE dni = ?", arrayOf(dni.toString()))
+        val cursor = db.rawQuery("SELECT idNoSocio, nombre, apellido FROM noSocio WHERE dni = ?", arrayOf(dni.toString()))
 
-        var idNoSocio: Int? = null
+        var resultado: Triple<Int, String, String>? = null
         if (cursor.moveToFirst()) {
-            idNoSocio = cursor.getInt(cursor.getColumnIndexOrThrow("idNoSocio"))
+            val idNoSocio = cursor.getInt(cursor.getColumnIndexOrThrow("idNoSocio"))
+            val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
+            val apellido = cursor.getString(cursor.getColumnIndexOrThrow("apellido"))
+            resultado = Triple(idNoSocio, nombre, apellido)
         }
 
         cursor.close()
-        return idNoSocio
+        return resultado
     }
 
     // Pago cuota mensual
@@ -311,12 +317,40 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         val nuevaFechaVencimiento = formatter.format(calendar.time)
 
         val updateStmt = db.compileStatement("""
-        UPDATE socio SET venceCuota = ? WHERE idSocio = ?
+        UPDATE socio SET venceCuota = ? WHERE dni = ?
     """.trimIndent())
         updateStmt.bindString(1, nuevaFechaVencimiento)
         updateStmt.bindLong(2, idSocio.toLong())
         updateStmt.executeUpdateDelete()
 
+        db.close()
+    }
+
+    // Pago cuota diaria
+    fun dailyPayment (dni: Int, fechaPago: String) {
+        val db = writableDatabase
+
+        val cursor = db.rawQuery("SELECT idNoSocio FROM noSocio WHERE dni = ?", arrayOf(dni.toString()))
+        if (cursor.moveToFirst()) {
+            val idNoSocio = cursor.getInt(cursor.getColumnIndexOrThrow("idNoSocio"))
+
+            // Actualizar venceCuota
+            val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val calendar = Calendar.getInstance()
+            calendar.add(Calendar.DAY_OF_YEAR, 1)
+            val nuevaFechaVencimiento = formatter.format(calendar.time)
+
+            val updateStmt = db.compileStatement(
+                """
+        UPDATE noSocio SET venceCuota = ? WHERE idNoSocio = ?
+    """.trimIndent()
+            )
+            updateStmt.bindString(1, nuevaFechaVencimiento)
+            updateStmt.bindLong(2, idNoSocio.toLong())
+            updateStmt.executeUpdateDelete()
+        }
+
+        cursor.close()
         db.close()
     }
 
@@ -331,6 +365,58 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         }
 
         cursor.close()
+        return monto
+    }
+
+    // Funcion buscar cuando vence la cuota
+    fun getVenceCuota(dni: Int): String? {
+        val db = readableDatabase
+        val query = """
+            SELECT venceCuota FROM socio WHERE dni = ?
+            UNION
+            SELECT venceCuota FROM noSocio WHERE dni = ?
+        """.trimIndent()
+
+        val cursor = db.rawQuery(query, arrayOf(dni.toString(), dni.toString()))
+
+        cursor.use {
+            if (it.moveToFirst()) {
+                return it.getString(0)
+            }
+        }
+
+        return null
+    }
+
+    // Consultar cuota diaria
+    fun getDailyFee(dni: Int): Double {
+        val db = readableDatabase
+
+        val cursorId = db.rawQuery(
+            "SELECT idNoSocio FROM noSocio WHERE dni = ?",
+            arrayOf(dni.toString())
+        )
+
+        if (!cursorId.moveToFirst()) {
+            cursorId.close()
+            return 0.0
+        }
+
+        val idNoSocio = cursorId.getInt(0)
+        cursorId.close()
+
+        val cursorMonto = db.rawQuery(
+            """
+        SELECT SUM(a.cuotaDiaria)
+        FROM actividad a
+        INNER JOIN noSocioActividad n ON a.idActividad = n.idActividad
+        WHERE n.idNoSocio = ?
+        """.trimIndent(),
+            arrayOf(idNoSocio.toString())
+        )
+
+        val monto = if (cursorMonto.moveToFirst()) cursorMonto.getDouble(0) else 0.0
+        cursorMonto.close()
         return monto
     }
 }
