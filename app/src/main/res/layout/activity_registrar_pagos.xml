@@ -112,6 +112,7 @@
         android:layout_width="155dp"
         android:layout_height="157dp"
         android:layout_margin="16dp"
+        android:visibility="gone"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,19 +122,19 @@
         app:layout_constraintVertical_bias="0.837">
 
         <RadioButton
-            android:id="@+id/rb1Installment"
+            android:id="@+id/rb1Quot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cuota1" />
 
         <RadioButton
-            android:id="@+id/rb3Installment"
+            android:id="@+id/rb3Quot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cuota3" />
 
         <RadioButton
-            android:id="@+id/rb6Installment"
+            android:id="@+id/rb6Quot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cuota6" />
@@ -153,7 +154,7 @@
 
     <TextView
         android:id="@+id/montoTextView"
-        android:layout_width="125dp"
+        android:layout_width="256dp"
         android:layout_height="49dp"
         android:textColor="@color/black"
         android:text="@string/totalPay"

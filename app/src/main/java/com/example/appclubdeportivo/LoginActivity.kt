@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
@@ -41,13 +40,6 @@ class LoginActivity : AppCompatActivity() {
         val btnSignUp: Button =findViewById(R.id.btnSignUp)
         btnSignUp.setOnClickListener {
             val intentar = Intent(this, RegisterActivity::class.java)
-            startActivity(intentar)
-        }
-
-        /* Olvide mi contraseña*/
-        val forgotPasswordText: TextView =findViewById(R.id.forgotPasswordText)
-        forgotPasswordText.setOnClickListener{
-            val intentar = Intent(this, RecuperarContrasenaActivity::class.java)
             startActivity(intentar)
         }
     }

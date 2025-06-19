@@ -96,26 +96,31 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/nameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/namepago" />
 
             <TextView
+                android:id="@+id/montoTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/amount" />
 
             <TextView
+                android:id="@+id/dniTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pay" />
+                android:text="@string/dni" />
 
             <TextView
+                android:id="@+id/fechaTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dateAndTime" />
 
             <TextView
+                android:id="@+id/idComprobanteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/voucher" />

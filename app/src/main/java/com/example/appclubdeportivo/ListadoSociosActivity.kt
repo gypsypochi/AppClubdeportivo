@@ -36,7 +36,7 @@ class ListadoSociosActivity : AppCompatActivity() {
 
     private fun listMembers(){
         val listView = findViewById<ListView>(R.id.listSocios)
-        val list = dbHelper.getSocios()
+        val list = dbHelper.listSocios()
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
         listView.adapter = adapter
     }

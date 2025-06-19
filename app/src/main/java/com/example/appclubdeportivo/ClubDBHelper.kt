@@ -4,8 +4,13 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.icu.util.Calendar
+import android.widget.Toast
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null, 3) {
+class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null, 5) {
 
     override fun onCreate(db: SQLiteDatabase) {
 
@@ -52,8 +57,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             CREATE TABLE actividad (
             idActividad INTEGER PRIMARY KEY AUTOINCREMENT,
             nombre TEXT,
-            arancelMensual REAL,
-            arancelDiario REAL,
+            cuotaDiaria REAL,
             maxInscritos INTEGER
             )
         """.trimIndent())
@@ -79,6 +83,16 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         """.trimIndent())
 
         db.execSQL("""
+            CREATE TABLE pagoMensual (
+            idPago INTEGER PRIMARY KEY AUTOINCREMENT,
+            idSocio INTEGER,
+            cuotaMensual REAL DEFAULT 25000.00,
+            fechaPago TEXT,
+            FOREIGN KEY (idSocio) REFERENCES socio(idSocio)
+            )
+        """.trimIndent())
+
+        db.execSQL("""
             CREATE TABLE user (
             idUser INTEGER PRIMARY KEY AUTOINCREMENT,
             userName TEXT,
@@ -86,9 +100,11 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             )
         """.trimIndent())
 
+        // Usuarios para ingresar al sistema
         db.execSQL("INSERT INTO user (userName, password) VALUES ('Veronica', '12345')")
         db.execSQL("INSERT INTO user (userName, password) VALUES ('Micaela', '12123')")
         db.execSQL("INSERT INTO user (userName, password) VALUES ('Pedro', '12321')")
+        db.execSQL("INSERT INTO user (userName, password) VALUES ('Kevin', '12345')")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -152,12 +168,25 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             put("telefono", persona.phoneNum)
             put("idDireccion", idDireccion.toInt())
         }
-        val result = db.insert(tableName, null, values)
-        return  result != -1L
+
+        // Si es socio se registra el monto del pago mensual
+        val idPersona = db.insert(tableName, null, values)
+        if (idPersona == -1L) return false
+
+        if (tableName == "socio") {
+            val pagoValues = ContentValues().apply {
+                put("idSocio", idPersona.toInt())
+            }
+
+            val idPago = db.insert("pagoMensual", null, pagoValues)
+            if (idPago == -1L) return false
+        }
+
+        return true
     }
 
     // Funcion lista de socios
-    fun getSocios():List<String>{
+    fun listSocios():List<String>{
         val socios = mutableListOf<String>()
         val db = readableDatabase
         val cursor = db.rawQuery("SELECT idSocio, nombre, apellido, dni, telefono, venceCuota FROM socio", null)
@@ -179,8 +208,8 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         return socios
     }
 
-    // Funcion lista de socios
-    fun getNoSocios():List<String>{
+    // Funcion lista de no socios
+    fun listNoSocios():List<String>{
         val noSocios = mutableListOf<String>()
         val db = readableDatabase
         val cursor = db.rawQuery("SELECT idNoSocio, nombre, apellido, dni, telefono, venceCuota FROM noSocio", null)
@@ -200,5 +229,108 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         }
         cursor.close()
         return noSocios
+    }
+
+    // Funcion lista de deudores
+    fun getDeudores():List<String>{
+        val deudores = mutableListOf<String>()
+        val db = readableDatabase
+
+        val vencimiento = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val fechaActual = vencimiento.format(Date())
+
+        val cursor = db.rawQuery("SELECT nombre, apellido, dni, telefono, venceCuota FROM socio WHERE venceCuota = ? ", arrayOf(fechaActual))
+        if (cursor.moveToFirst()) {
+            do {
+                val nombre = cursor.getString(1)
+                val apellido = cursor.getString(2)
+                val dni = cursor.getString(3)
+                val telefono = cursor.getString(4)
+                val venceCuota = cursor.getString(5)
+
+                val socioInfo = "Nombre: $nombre $apellido - DNI: $dni - Tel: $telefono - Vence: $venceCuota"
+                deudores.add(socioInfo)
+
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return deudores
+    }
+
+    // Buscar socio por dni
+    fun getSocio(dni: Int): Triple<Int, String, String>? {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT idSocio, nombre, apellido FROM socio WHERE dni = ?", arrayOf(dni.toString()))
+
+        var resultado: Triple<Int, String, String>? = null
+        if (cursor.moveToFirst()) {
+            val idSocio = cursor.getInt(cursor.getColumnIndexOrThrow("idSocio"))
+            val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
+            val apellido = cursor.getString(cursor.getColumnIndexOrThrow("apellido"))
+            resultado = Triple(idSocio, nombre, apellido)
+        }
+
+        cursor.close()
+        return resultado
+    }
+
+    // Buscar no socio por dni
+    fun getNoSocio(dni: Int): Int? {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT idNoSocio FROM noSocio WHERE dni = ?", arrayOf(dni.toString()))
+
+        var idNoSocio: Int? = null
+        if (cursor.moveToFirst()) {
+            idNoSocio = cursor.getInt(cursor.getColumnIndexOrThrow("idNoSocio"))
+        }
+
+        cursor.close()
+        return idNoSocio
+    }
+
+    // Pago cuota mensual
+    fun monthlyPayment(idSocio: Int, cuotaMensual: Double, fechaPago: String) {
+        val db = writableDatabase
+
+        // Insertar pago
+        val values = ContentValues().apply {
+            put("idSocio", idSocio)
+            put("cuotaMensual", cuotaMensual)
+            put("fechaPago", fechaPago)
+        }
+        val resultado = db.insert("pagoMensual", null, values)
+        if (resultado == -1L) {
+            throw Exception("Error al registrar el pago mensual")
+        }
+
+        // Actualizar venceCuota
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val calendar = Calendar.getInstance()
+        calendar.time = formatter.parse(fechaPago)!!
+        calendar.add(Calendar.MONTH, 1)
+        val nuevaFechaVencimiento = formatter.format(calendar.time)
+
+        val updateStmt = db.compileStatement("""
+        UPDATE socio SET venceCuota = ? WHERE idSocio = ?
+    """.trimIndent())
+        updateStmt.bindString(1, nuevaFechaVencimiento)
+        updateStmt.bindLong(2, idSocio.toLong())
+        updateStmt.executeUpdateDelete()
+
+        db.close()
+    }
+
+    // Buscar cuotaMensual
+    fun getQuotMonthly(idSocio: Int): Double? {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT cuotaMensual FROM pagoMensual Where idSocio = ?", arrayOf(idSocio.toString()))
+
+        var monto: Double? = null
+        if (cursor.moveToFirst()) {
+            monto = cursor.getDouble(cursor.getColumnIndexOrThrow("cuotaMensual"))
+        }
+
+        cursor.close()
+        return monto
     }
 }

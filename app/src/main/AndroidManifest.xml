@@ -16,9 +16,6 @@
             android:name=".InscribirActividadNoSocioActivity"
             android:exported="false" />
         <activity
-            android:name=".ConfirmarRecuperacionActivity"
-            android:exported="false" />
-        <activity
             android:name=".ConsulActivityActivity"
             android:exported="false" />
         <activity
@@ -41,9 +38,6 @@
             android:exported="false" />
         <activity
             android:name=".ListadoDeudoresActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RecuperarContrasenaActivity"
             android:exported="false" />
         <activity
             android:name=".GestionarNoSociosActivity"
