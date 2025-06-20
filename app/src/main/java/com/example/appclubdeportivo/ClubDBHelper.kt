@@ -12,6 +12,11 @@ import java.util.Locale
 
 class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null, 5) {
 
+    override fun onConfigure(db: SQLiteDatabase) {
+        super.onConfigure(db)
+        db.setForeignKeyConstraintsEnabled(true)
+    }
+
     override fun onCreate(db: SQLiteDatabase) {
 
     // Crear las tablas
@@ -35,7 +40,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             telefono INTEGER,
             idDireccion INTEGER,
             venceCuota TEXT,
-            FOREIGN KEY (idDireccion) REFERENCES direccion(idDireccion)
+            FOREIGN KEY (idDireccion) REFERENCES direccion(idDireccion) ON DELETE CASCADE
             )
         """.trimIndent())
 
@@ -49,7 +54,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             telefono INTEGER,
             idDireccion INTEGER,
             venceCuota TEXT,
-            FOREIGN KEY (idDireccion) REFERENCES direccion(idDireccion)
+            FOREIGN KEY (idDireccion) REFERENCES direccion(idDireccion) ON DELETE CASCADE
             )
         """.trimIndent())
 
@@ -67,7 +72,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             idSocioActividad INTEGER PRIMARY KEY AUTOINCREMENT,
             idSocio INTEGER,
             idActividad INTEGER,
-            FOREIGN KEY (idSocio) REFERENCES socio(idSocio),
+            FOREIGN KEY (idSocio) REFERENCES socio(idSocio) ON DELETE CASCADE,
             FOREIGN KEY (idActividad) REFERENCES actividad(idActividad)
             )
         """.trimIndent())
@@ -77,7 +82,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             idNoSocioActividad INTEGER PRIMARY KEY AUTOINCREMENT,
             idNoSocio INTEGER,
             idActividad INTEGER,
-            FOREIGN KEY (idNoSocio) REFERENCES noSocio(idNoSocio),
+            FOREIGN KEY (idNoSocio) REFERENCES noSocio(idNoSocio) ON DELETE CASCADE,
             FOREIGN KEY (idActividad) REFERENCES actividad(idActividad)
             )
         """.trimIndent())
@@ -88,7 +93,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
             idSocio INTEGER,
             cuotaMensual REAL DEFAULT 25000.00,
             fechaPago TEXT,
-            FOREIGN KEY (idSocio) REFERENCES socio(idSocio)
+            FOREIGN KEY (idSocio) REFERENCES socio(idSocio) ON DELETE CASCADE
             )
         """.trimIndent())
 
@@ -317,7 +322,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         val nuevaFechaVencimiento = formatter.format(calendar.time)
 
         val updateStmt = db.compileStatement("""
-        UPDATE socio SET venceCuota = ? WHERE dni = ?
+        UPDATE socio SET venceCuota = ? WHERE idSocio = ?
     """.trimIndent())
         updateStmt.bindString(1, nuevaFechaVencimiento)
         updateStmt.bindLong(2, idSocio.toLong())
@@ -418,5 +423,48 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         val monto = if (cursorMonto.moveToFirst()) cursorMonto.getDouble(0) else 0.0
         cursorMonto.close()
         return monto
+    }
+
+    // Eliminar socio
+    fun deleteMember(idSocio: Int) {
+        val db = writableDatabase
+        val cursor = db.rawQuery("SELECT idSocio, idDireccion FROM socio WHERE idSocio = ?", arrayOf(idSocio.toString()))
+        if (cursor.moveToFirst()) {
+            val idSocio = cursor.getInt(0)
+            val idDireccion = cursor.getInt(1)
+            cursor.close()
+
+            db.delete("socio", "idSocio = ?", arrayOf(idSocio.toString()))
+            db.delete("direccion", "idDireccion = ?", arrayOf(idDireccion.toString()))
+        }
+    }
+
+    // Eliminar no socio
+    fun deleteNonMember(idNoSocio: Int) {
+        val db = writableDatabase
+        val cursor = db.rawQuery("SELECT idNoSocio, idDireccion FROM noSocio WHERE idNoSocio = ?", arrayOf(idNoSocio.toString()))
+        if (cursor.moveToFirst()) {
+            val idNoSocio = cursor.getInt(0)
+            val idDireccion = cursor.getInt(1)
+            cursor.close()
+
+            db.delete("noSocio", "idNoSocio = ?", arrayOf(idNoSocio.toString()))
+            db.delete("direccion", "idDireccion = ?", arrayOf(idDireccion.toString()))
+        }
+    }
+
+    // List de actividades disponibles
+    fun getAllActivities(): List<String> {
+        val actividades = mutableListOf<String>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT nombre FROM actividad", null)
+        if (cursor.moveToFirst()) {
+            do {
+                val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
+                actividades.add(nombre)
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return actividades
     }
 }

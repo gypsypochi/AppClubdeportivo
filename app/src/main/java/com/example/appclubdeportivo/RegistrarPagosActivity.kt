@@ -168,6 +168,12 @@ class RegistrarPagosActivity : AppCompatActivity() {
             finish()
         }
 
+        // Boton Cancelar
+        val btnCancel = findViewById<Button>(R.id.btnCancel)
+        btnCancel.setOnClickListener {
+            finish()
+        }
+
     }
 
         fun actualizarMontoPorCuotas(checkedId: Int, montoTextView: TextView) {
