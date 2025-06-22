@@ -72,7 +72,7 @@
         android:layout_width="256dp"
         android:layout_height="49dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="number"
         android:hint="@string/dni"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

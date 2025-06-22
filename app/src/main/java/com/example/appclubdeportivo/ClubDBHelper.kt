@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null, 5) {
+class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null, 6) {
 
     override fun onConfigure(db: SQLiteDatabase) {
         super.onConfigure(db)
@@ -114,14 +114,69 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         // Actividades disponibles
         db.execSQL("""
             INSERT INTO actividad (nombre, cuotaDiaria, maxInscritos) VALUES
-            ("Futbol", 1500.00, 25),
-            ("Baloncesto", 1500.00, 25),
-            ("Natación", 1500.00, 25),
-            ("Gimnasia", 1500.00, 25),
-            ("Atletismo", 1500.00, 25),
-            ("Escalada", 1500.00, 25),
-            ("Tenis", 1500.00, 25),
-            ("Tenis de Mesa", 1500.00, 25)
+            ('Futbol', 1500.00, 25),
+            ('Baloncesto', 1500.00, 25),
+            ('Natación', 1500.00, 25),
+            ('Gimnasia', 1500.00, 25),
+            ('Atletismo', 1500.00, 25),
+            ('Escalada', 1500.00, 25),
+            ('Tenis', 1500.00, 25),
+            ('Tenis de Mesa', 1500.00, 25)
+        """.trimIndent())
+
+
+        // Cargar socios y no socios de pruebas
+
+        // Insert de direccion para usuarios de prueba
+        db.execSQL("""
+            INSERT INTO direccion (calle, altura, barrio, localidad) VALUES
+            ('Araoz', 125, 'Villa Crespo', 'CABA'),
+            ('Loyola', 625, 'Villa Crespo', 'CABA'),
+            ('Cordoba', 4525, 'Palermo', 'CABA'),
+            ('Junin', 125, 'Recoleta', 'CABA'),
+            ('Superi', 325, 'Belgrano', 'CABA'),
+            ('Santa Fe', 1570, 'San Nicolas', 'CABA'),
+            ('Belgrano', 255, 'Almagro', 'CABA'),
+            ('Sarmiento', 4125, 'Almagro', 'CABA'),
+            ('Araoz', 452, 'Villa Crespo', 'CABA'),
+            ('Aguirre', 325, 'Villa Crespo', 'CABA')
+        """.trimIndent())
+
+        // Insert de socios de prueba
+
+        // Hacemos que el vence cuota sea la fecha actual
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val fechaHoy = sdf.format(Date())
+
+        db.execSQL("""
+            INSERT INTO socio (nombre, apellido, dni, nacionalidad, telefono, idDireccion, venceCuota) VALUES
+            ('Fernando', 'Rivero', 12345678, 'Venezolana', 12354648, 1, '$fechaHoy'),
+            ('Ronald', 'Centeno', 12345677, 'Argentina', 12357948, 2, '$fechaHoy'),
+            ('Carlos', 'Valencia', 32345678, 'Argentina', 12354848, 3, '$fechaHoy'),
+            ('Samuel', 'Guerra', 22345678, 'Venezolana', 13454648, 4, '$fechaHoy'),
+            ('Luisa', 'Flores', 87345678, 'Argentina', 12014648, 5, '$fechaHoy'),
+            ('Angie', 'Martinez', 78345677, 'Venezolana', 89354648, 6, '$fechaHoy'),
+            ('Martin', 'Ortiz', 98958745, 'Argentina', 82357648, 7, '$fechaHoy')
+        """.trimIndent())
+
+        // Insert de socios en tabla pagoMensual
+        db.execSQL("""
+            INSERT INTO pagoMensual (idSocio) VALUES
+            (1),
+            (2),
+            (3),
+            (4),
+            (5),
+            (6),
+            (7)
+        """.trimIndent())
+
+        //Insert no socios
+        db.execSQL("""
+            INSERT INTO noSocio (nombre, apellido, dni, nacionalidad, telefono, idDireccion, venceCuota) VALUES
+            ('Lucas', 'Rino', 32149978, 'Venezolana', 12354648, 8, '$fechaHoy'),
+            ('Alfredo', 'Cantor', 78946577, 'Argentina', 12357948, 9, '$fechaHoy'),
+            ('Sofia', 'Lara', 51445688, 'Argentina', 12354848, 10, '$fechaHoy')
         """.trimIndent())
     }
 

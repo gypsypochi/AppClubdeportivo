@@ -59,7 +59,7 @@
         android:layout_height="49dp"
         android:ems="10"
         android:textColorHint="@color/black"
-        android:inputType="text"
+        android:inputType="number"
         android:hint="@string/dni"
         android:autofillHints="Dni"
         app:layout_constraintBottom_toBottomOf="parent"
