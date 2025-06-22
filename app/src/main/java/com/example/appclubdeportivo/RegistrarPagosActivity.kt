@@ -82,7 +82,6 @@ class RegistrarPagosActivity : AppCompatActivity() {
                         montoTextView.text = "Total a pagar: $monto"
                         Toast.makeText(this, "Es noSocio. ID: $idNoSocio", Toast.LENGTH_SHORT).show()
                         btnConfirm.isEnabled = true
-
                         esNoSocio = true
                     }
                     else -> {
@@ -149,7 +148,7 @@ class RegistrarPagosActivity : AppCompatActivity() {
             }
 
             if (esNoSocio) {
-                dbHelper.dailyPayment(dniConsultado, fechaPago)
+                dbHelper.dailyPayment(dniConsultado)
             } else {
                 val idSocio = socioDatos?.first ?: return@setOnClickListener
                 dbHelper.monthlyPayment(idSocio, monto, fechaPago)
@@ -163,7 +162,6 @@ class RegistrarPagosActivity : AppCompatActivity() {
                 putExtra("cuotas", cuotasSeleccionadas)
                 putExtra("fecha", fechaPago)
             }
-
             startActivity(intento)
             finish()
         }

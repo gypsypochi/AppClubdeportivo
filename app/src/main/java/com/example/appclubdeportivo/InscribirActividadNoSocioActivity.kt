@@ -28,10 +28,10 @@ class InscribirActividadNoSocioActivity : AppCompatActivity() {
         // Spinner lista actividades
         val spinner = findViewById<Spinner>(R.id.activitiesSpinner)
 
-        val listActividades = dbHelper.getAllActivities()
+        /* val listActividades = dbHelper.getActivitiesNonSuscribeS(idSocio)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listActividades)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+        spinner.adapter = adapter */
 
         /*Cancelar*/
         val btnCancel: Button =findViewById(R.id.btnCancel)

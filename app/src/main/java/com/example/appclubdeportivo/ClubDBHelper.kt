@@ -110,6 +110,19 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         db.execSQL("INSERT INTO user (userName, password) VALUES ('Micaela', '12123')")
         db.execSQL("INSERT INTO user (userName, password) VALUES ('Pedro', '12321')")
         db.execSQL("INSERT INTO user (userName, password) VALUES ('Kevin', '12345')")
+
+        // Actividades disponibles
+        db.execSQL("""
+            INSERT INTO actividad (nombre, cuotaDiaria, maxInscritos) VALUES
+            ("Futbol", 1500.00, 25),
+            ("Baloncesto", 1500.00, 25),
+            ("Natación", 1500.00, 25),
+            ("Gimnasia", 1500.00, 25),
+            ("Atletismo", 1500.00, 25),
+            ("Escalada", 1500.00, 25),
+            ("Tenis", 1500.00, 25),
+            ("Tenis de Mesa", 1500.00, 25)
+        """.trimIndent())
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -120,6 +133,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         db.execSQL("DROP TABLE IF EXISTS noSocio")
         db.execSQL("DROP TABLE IF EXISTS socio")
         db.execSQL("DROP TABLE IF EXISTS direccion")
+        db.execSQL("DROP TABLE IF EXISTS pagoMensual")
 
         onCreate(db)
     }
@@ -332,7 +346,7 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
     }
 
     // Pago cuota diaria
-    fun dailyPayment (dni: Int, fechaPago: String) {
+    fun dailyPayment (dni: Int) {
         val db = writableDatabase
 
         val cursor = db.rawQuery("SELECT idNoSocio FROM noSocio WHERE dni = ?", arrayOf(dni.toString()))
@@ -453,18 +467,74 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         }
     }
 
-    // List de actividades disponibles
-    fun getAllActivities(): List<String> {
-        val actividades = mutableListOf<String>()
+    // List de actividades disponibles para el socio
+    fun getActivitiesNonSuscribeS(idSocio: Int): List<Actividad> {
+        val actividades = mutableListOf<Actividad>()
         val db = readableDatabase
-        val cursor = db.rawQuery("SELECT nombre FROM actividad", null)
+        val query = """
+        SELECT a.idActividad, a.nombre, a.cuotaDiaria
+        FROM actividad a
+        WHERE a.idActividad NOT IN (
+            SELECT idActividad FROM socioActividad WHERE idSocio = ?
+        )
+    """.trimIndent()
+        val cursor = db.rawQuery(query, arrayOf(idSocio.toString()))
         if (cursor.moveToFirst()) {
             do {
-                val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
-                actividades.add(nombre)
+                val idActividad = cursor.getInt(0)
+                val nombre = cursor.getString(1)
+                val cuotaDiaria = cursor.getDouble(2)
+
+                actividades.add(Actividad(idActividad, nombre, cuotaDiaria))
             } while (cursor.moveToNext())
         }
         cursor.close()
         return actividades
+    }
+
+    // Inscribir actividad socio
+    fun activitiesSuscribeS(idSocio: Int, idActividad: Int) {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put("idSocio", idSocio)
+            put("idActividad", idActividad)
+        }
+        db.insert("socioActividad", null, values)
+    }
+
+    // Consultar actividades inscritas socio
+    fun getRegisteredAct(idSocio: Int): List<Actividad> {
+        val db = readableDatabase
+        val query = """
+        SELECT a.idActividad, a.nombre, a.cuotaDiaria
+        FROM actividad a
+        INNER JOIN socioActividad sa ON a.idActividad = sa.idActividad
+        WHERE sa.idSocio = ?
+    """.trimIndent()
+        val cursor = db.rawQuery(query, arrayOf(idSocio.toString()))
+        val actividades = mutableListOf<Actividad>()
+        if (cursor.moveToFirst()) {
+            do {
+                val idActividad = cursor.getInt(0)
+                val nombre = cursor.getString(1)
+                val cuotaDiaria = cursor.getDouble(2)
+
+                actividades.add(Actividad(idActividad, nombre, cuotaDiaria))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return actividades
+    }
+
+    // Desinscribir actividad socio
+    fun unsuscribeAct(idSocio: Int, idActividad: Int) {
+        val db = writableDatabase
+        db.delete(
+            "socioActividad",
+            "idSocio = ? AND idActividad = ?",
+            arrayOf(idSocio.toString(), idActividad.toString())
+        )
+        db.close()
     }
 }

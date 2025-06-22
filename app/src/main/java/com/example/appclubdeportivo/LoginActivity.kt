@@ -31,6 +31,8 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Bienvenido $u", Toast.LENGTH_SHORT).show()
                 val intentar = Intent(this, MenuPrincipalActivity::class.java)
                 startActivity(intentar)
+                user.text.clear()
+                pass.text.clear()
             } else {
                 Toast.makeText(this, "Acceso Denegado", Toast.LENGTH_SHORT).show()
             }

@@ -15,6 +15,10 @@ class GestionDeActividadesSocioActivity : AppCompatActivity() {
 
     lateinit var dbHelper: ClubDBHelper
 
+    private var id: Int = 0
+    private var nameSocio: String = ""
+    private var lastNameS: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -44,9 +48,16 @@ class GestionDeActividadesSocioActivity : AppCompatActivity() {
                     val dniInt = dniStr.toIntOrNull()
                     if (dniInt != null) {
                         val socio = dbHelper.getSocio(dniInt)
-                        val socioExiste = socio != null
+
+                        if (socio != null) {
+                            val (idSocio, nombre, apellido) = socio
+                            id = idSocio
+                            nameSocio = nombre
+                            lastNameS = apellido
+                        }
 
                         // Habilitar botones si el socio existe
+                        val socioExiste = socio != null
                         btnRegisterAct.isEnabled = socioExiste
                         btnConsult.isEnabled = socioExiste
                         btnUnsubscribeActiv.isEnabled = socioExiste
@@ -73,20 +84,35 @@ class GestionDeActividadesSocioActivity : AppCompatActivity() {
 
         /* Boton Inscribir Actividad*/
         btnRegisterAct.setOnClickListener {
-            val intentar = Intent(this, InscribirActividadActivity::class.java)
+            val intentar = Intent(this, InscribirActividadActivity::class.java).apply {
+                putExtra("id", id)
+                putExtra("nombre", nameSocio)
+                putExtra("apellido", lastNameS)
+            }
             startActivity(intentar)
+            dni.text.clear()
         }
 
         /* Boton Consultar Actividad*/
         btnConsult.setOnClickListener {
-            val intentar = Intent (this, ConsulActivityActivity::class.java)
+            val intentar = Intent (this, ConsulActivityActivity::class.java).apply {
+                putExtra("id", id)
+                putExtra("nombre", nameSocio)
+                putExtra("apellido", lastNameS)
+            }
             startActivity(intentar)
+            dni.text.clear()
         }
 
         /* Boton Desinscribir Actividad*/
         btnUnsubscribeActiv.setOnClickListener {
-            val intentar = Intent (this, DesinscribirActividadActivity::class.java)
+            val intentar = Intent (this, DesinscribirActividadActivity::class.java).apply {
+                putExtra("id", id)
+                putExtra("nombre", nameSocio)
+                putExtra("apellido", lastNameS)
+            }
             startActivity(intentar)
+            dni.text.clear()
         }
     }
 }

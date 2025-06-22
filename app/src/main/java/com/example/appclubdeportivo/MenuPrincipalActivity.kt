@@ -6,6 +6,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 
 class MenuPrincipalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +18,15 @@ class MenuPrincipalActivity : AppCompatActivity() {
         /* Arrow Back */
         val btnBack: ImageButton =findViewById(R.id.btnBack)
         btnBack.setOnClickListener{
-            finish()
+            AlertDialog.Builder(this)
+                .setTitle("Cerrar Sesión")
+                .setMessage("Quieres finalizar la sesión")
+                .setPositiveButton("Si") {_, _, ->
+                    Toast.makeText(this, "Sesión Finalizada", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+                .setNegativeButton("No", null)
+                .show()
         }
 
         /* Boton Gestionar Socios */

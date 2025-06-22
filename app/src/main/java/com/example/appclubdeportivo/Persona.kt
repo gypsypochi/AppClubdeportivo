@@ -15,3 +15,13 @@ data class Direccion (
     val barrio: String,
     val localidad: String
 )
+
+data class Actividad (
+    val id: Int,
+    val nombre: String,
+    val cuotaDiaria: Double
+) {
+    override fun toString(): String {
+        return "ID: $id - $nombre - Cuota Diaria: $cuotaDiaria"
+    }
+}
