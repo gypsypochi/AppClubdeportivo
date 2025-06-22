@@ -38,13 +38,7 @@ class InscribirActividadActivity : AppCompatActivity() {
 
         // Spinner lista actividades
         val spinner = findViewById<Spinner>(R.id.activitiesSpinner)
-
-        val listActividades = dbHelper.getActivitiesNonSuscribeS(id).toMutableList()
-        listActividades.add(0, Actividad(0, "Seleccionar", 0.0))
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listActividades)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
-        spinner.setSelection(0)
+        cargarSpinner(spinner, id)
 
         // Boton inscribir actividad
         val btnSuscribe = findViewById<Button>(R.id.btnSuscribe)
@@ -64,13 +58,7 @@ class InscribirActividadActivity : AppCompatActivity() {
                 .setPositiveButton("Si") { _, _, ->
                     dbHelper.activitiesSuscribeS(id, idActividad)
                     Toast.makeText(this, "Actividad Inscrita", Toast.LENGTH_SHORT).show()
-
-                    val nuevasActividades = dbHelper.getActivitiesNonSuscribeS(id).toMutableList()
-                    nuevasActividades.add(0, Actividad(0, "Seleccionar", 0.0))
-                    val nuevoAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, nuevasActividades)
-                    nuevoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    spinner.adapter = nuevoAdapter
-                    spinner.setSelection(0)
+                    cargarSpinner(spinner, id)
                 }
                 .setNegativeButton("No", null)
                 .show()
@@ -83,4 +71,13 @@ class InscribirActividadActivity : AppCompatActivity() {
         }
     }
 
+    // Cargar spinner
+    private fun cargarSpinner(spinner: Spinner, id: Int) {
+        val listActividades = dbHelper.getActivitiesNonSuscribeS(id).toMutableList()
+        listActividades.add(0, Actividad(0, "Seleccionar", 0.0))
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listActividades)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+        spinner.setSelection(0)
+    }
 }

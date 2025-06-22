@@ -6,46 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/electric_cyan"
-    tools:context=".InscribirActividadNoSocioActivity">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="154dp"
-        android:layout_height="136dp"
-        android:contentDescription="@string/logoDesc"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105"
-        app:srcCompat="@drawable/club_deportivo_mateo" />
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="@string/cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.837" />
-
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/blue_gray"
-        android:text="Inscribir Actividad"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.737" />
+    tools:context=".ConsulActivityActivity">
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -76,58 +37,71 @@
         app:layout_constraintVertical_bias="0.022"
         app:srcCompat="@drawable/ic_menu" />
 
-    <Spinner
-        android:id="@+id/activitiesSpinner"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="154dp"
+        android:layout_height="136dp"
+        android:contentDescription="@string/logoDesc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573" />
+        app:layout_constraintVertical_bias="0.105"
+        app:srcCompat="@drawable/club_deportivo_mateo" />
 
     <TextView
-        android:id="@+id/seleccActivitytextView"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:text="@string/selectActivities"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.476" />
-
-    <TextView
-        android:id="@+id/nameTextView"
-        android:layout_width="256dp"
-        android:layout_height="49dp"
-        android:text="@string/parnertName"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376" />
-
-    <TextView
-        android:id="@+id/desinscribirTextView"
-        android:layout_width="192dp"
-        android:layout_height="70dp"
-        android:text="@string/registerActivitiesNoSocio"
+        android:id="@+id/textView"
+        android:layout_width="189dp"
+        android:layout_height="76dp"
+        android:text="@string/ActivityConsul"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="0.896"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.146" />
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="256dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/blue_gray"
+        android:text="@string/close"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.928" />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="256dp"
+        android:layout_height="49dp"
+        android:text="Nombre y Apellido"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.337" />
+
+    <ListView
+        android:id="@+id/listActivities"
+        android:layout_width="382dp"
+        android:layout_height="321dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.712" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

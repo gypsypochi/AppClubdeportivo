@@ -13,13 +13,13 @@
         android:layout_width="256dp"
         android:layout_height="49dp"
         android:backgroundTint="@color/blue_gray"
-        android:text="@string/signIn"
+        android:text="Presiona si ya estas registrado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
+        app:layout_constraintVertical_bias="0.439" />
 
     <ImageView
         android:id="@+id/logo"
@@ -40,7 +40,7 @@
         android:layout_height="49dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Nombre de Usuario"
+        android:hint="Nombre de Usuario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -74,7 +74,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906" />
+        app:layout_constraintVertical_bias="0.85" />
 
     <ImageButton
         android:id="@+id/btnMenu"

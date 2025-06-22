@@ -73,7 +73,7 @@
         android:layout_height="49dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/dni"
+        android:hint="@string/dni"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -95,6 +95,7 @@
         app:layout_constraintVertical_bias="0.397" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="380dp"
         android:layout_height="280dp"
         app:cardBackgroundColor="@color/card_color"
@@ -103,11 +104,43 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
         app:layout_constraintVertical_bias="0.758">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/idMemberTextView"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="144dp"
+                android:layout_marginEnd="244dp"
+                android:layout_marginBottom="96dp"
+                android:text="ID Socio:"
+                android:textColor="@color/blue_gray" />
+
+            <TextView
+                android:id="@+id/namePartnerTextView"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="180dp"
+                android:layout_marginEnd="244dp"
+                android:layout_marginBottom="60dp"
+                android:text="Nombres y Apellidos:"
+                android:textColor="@color/blue_gray" />
+
 
             <ImageView
                 android:id="@+id/logoCarnetImageView"
@@ -155,38 +188,8 @@
                 android:textAlignment="center"
                 android:textSize="30dp" />
 
-            <TextView
-                android:id="@+id/memberTextView"
-                android:layout_width="125dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="154dp"
-                android:layout_marginEnd="206dp"
-                android:layout_marginBottom="99dp"
-                android:text="Socio:"
-                android:textColor="@color/blue_gray" />
-
-            <TextView
-                android:id="@+id/idPartnerTextView"
-                android:layout_width="125dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="11dp"
-                android:layout_marginTop="188dp"
-                android:layout_marginEnd="202dp"
-                android:layout_marginBottom="70dp"
-                android:text="Numero de Socio:"
-                android:textColor="@color/blue_gray" />
-
-            <TextView
-                android:id="@+id/fechaDeInscripcionTextView"
+        <TextView
+                android:id="@+id/dniTextView"
                 android:layout_width="125dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -197,7 +200,7 @@
                 android:layout_marginTop="220dp"
                 android:layout_marginEnd="203dp"
                 android:layout_marginBottom="37dp"
-                android:text="Fecha de Inscripción:"
+                android:text="Documento N°: "
                 android:textColor="@color/blue_gray" />
 
         </RelativeLayout>

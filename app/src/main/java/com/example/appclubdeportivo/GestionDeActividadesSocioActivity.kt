@@ -82,7 +82,7 @@ class GestionDeActividadesSocioActivity : AppCompatActivity() {
             finish()
         }
 
-        /* Boton Inscribir Actividad*/
+        /* Boton Inscribir Actividad */
         btnRegisterAct.setOnClickListener {
             val intentar = Intent(this, InscribirActividadActivity::class.java).apply {
                 putExtra("id", id)

@@ -537,4 +537,85 @@ class ClubDBHelper (context: Context): SQLiteOpenHelper(context, "ClubDB", null,
         )
         db.close()
     }
+
+    // List de actividades disponibles para el no socio
+    fun getActivitiesNonSuscribeNS(idNoSocio: Int): List<Actividad> {
+        val actividades = mutableListOf<Actividad>()
+        val db = readableDatabase
+        val query = """
+        SELECT a.idActividad, a.nombre, a.cuotaDiaria
+        FROM actividad a
+        WHERE a.idActividad NOT IN (
+            SELECT idActividad FROM noSocioActividad WHERE idNoSocio = ?
+        )
+    """.trimIndent()
+        val cursor = db.rawQuery(query, arrayOf(idNoSocio.toString()))
+        if (cursor.moveToFirst()) {
+            do {
+                val idActividad = cursor.getInt(0)
+                val nombre = cursor.getString(1)
+                val cuotaDiaria = cursor.getDouble(2)
+
+                actividades.add(Actividad(idActividad, nombre, cuotaDiaria))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return actividades
+    }
+
+    // Inscribir actividad no socio
+    fun activitiesSuscribeN(idNoSocio: Int, idActividad: Int) {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put("idNoSocio", idNoSocio)
+            put("idActividad", idActividad)
+        }
+        db.insert("noSocioActividad", null, values)
+    }
+
+    // Consultar actividades inscritas no socio
+    fun getRegisteredActNS(idNoSocio: Int): List<Actividad> {
+        val db = readableDatabase
+        val query = """
+        SELECT a.idActividad, a.nombre, a.cuotaDiaria
+        FROM actividad a
+        INNER JOIN noSocioActividad nsa ON a.idActividad = nsa.idActividad
+        WHERE nsa.idNoSocio = ?
+    """.trimIndent()
+        val cursor = db.rawQuery(query, arrayOf(idNoSocio.toString()))
+        val actividades = mutableListOf<Actividad>()
+        if (cursor.moveToFirst()) {
+            do {
+                val idActividad = cursor.getInt(0)
+                val nombre = cursor.getString(1)
+                val cuotaDiaria = cursor.getDouble(2)
+
+                actividades.add(Actividad(idActividad, nombre, cuotaDiaria))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return actividades
+    }
+
+    // Desinscribir actividad no socio
+    fun unsuscribeActNS(idNoSocio: Int, idActividad: Int) {
+        val db = writableDatabase
+        db.delete(
+            "noSocioActividad",
+            "idNoSocio = ? AND idActividad = ?",
+            arrayOf(idNoSocio.toString(), idActividad.toString())
+        )
+        db.close()
+    }
+
+    // Registrar Usuario y contrasena
+    fun registerUser (userName: String, password: String) {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put("userName", userName)
+            put("password", password)
+        }
+        db.insert("user", null, values)
+    }
 }

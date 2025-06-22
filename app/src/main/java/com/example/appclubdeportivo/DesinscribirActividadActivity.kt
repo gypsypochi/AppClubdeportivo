@@ -54,7 +54,7 @@ class DesinscribirActividadActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle("Desinscribir")
                 .setMessage("Confirma que quiere eliminar la actividad $nombreAct")
-                .setPositiveButton("Si") { _, _, ->
+                .setPositiveButton("Si") { _, _ ->
                     dbHelper.unsuscribeAct(id, idActividad)
                     Toast.makeText(this, "Actividad Desinscrita", Toast.LENGTH_SHORT).show()
                     cargarSpinner(spinner, id)

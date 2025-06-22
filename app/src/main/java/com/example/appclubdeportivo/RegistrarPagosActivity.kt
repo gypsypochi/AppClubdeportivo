@@ -76,7 +76,7 @@ class RegistrarPagosActivity : AppCompatActivity() {
                     }
                     noSocio != null -> {
                         val (idNoSocio, nombre, apellido) = noSocio
-                        nombreSocio = "$nombre, $apellido"
+                        nombreSocio = "$nombre $apellido"
                         dniConsultado = dni
                         monto = dbHelper.getDailyFee(dni)
                         montoTextView.text = "Total a pagar: $monto"
