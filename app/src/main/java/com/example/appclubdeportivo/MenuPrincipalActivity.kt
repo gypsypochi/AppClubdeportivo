@@ -24,7 +24,8 @@ class MenuPrincipalActivity : AppCompatActivity() {
                 .setMessage("Quieres finalizar la sesión")
                 .setPositiveButton("Si") {_, _, ->
                     Toast.makeText(this, "Sesión Finalizada", Toast.LENGTH_SHORT).show()
-                    finish()
+                    val intentar = Intent(this, LoginActivity::class.java)
+                    startActivity(intentar)
                 }
                 .setNegativeButton("No", null)
                 .show()
